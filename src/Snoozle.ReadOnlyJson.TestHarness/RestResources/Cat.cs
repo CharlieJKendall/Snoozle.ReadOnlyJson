@@ -9,7 +9,7 @@
         public string Name { get; set; }
     }
 
-    public class CatResourceConfiguration : CustomResourceConfigurationBuilder<Cat>
+    public class CatResourceConfiguration : JsonResourceConfigurationBuilder<Cat>
     {
         public override void Configure()
         {
