@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp2.2;</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Snoozle.ReadOnlyJson</PackageId>
+    <Authors>Charlie Kendall</Authors>
+    <Copyright>Copyright (c) Charlie Kendall 2020</Copyright>
+    <Title>Read Only JSON File Data Provider For Snoozle</Title>
+    <Description>Enables JSON files to be used as read-only data providers with a Snoozle REST API.</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageTags>Snoozle;JSON;REST;API</PackageTags>
+    <RepositoryUrl>https://github.com/CharlieJKendall/Snoozle.ReadOnlyJson</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Snoozle" Version="0.1.0.56" />
+  </ItemGroup>
+
+</Project>
