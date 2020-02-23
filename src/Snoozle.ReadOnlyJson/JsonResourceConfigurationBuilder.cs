@@ -3,7 +3,7 @@ using Snoozle.ReadOnlyJsonFile.Implementation;
 
 namespace Snoozle.ReadOnlyJsonFile
 {
-    public abstract class CustomResourceConfigurationBuilder<TResource> : BaseResourceConfigurationBuilder<TResource, IReadOnlyJsonPropertyConfiguration, IReadOnlyJsonResourceConfiguration, IReadOnlyJsonModelConfiguration>
+    public abstract class JsonResourceConfigurationBuilder<TResource> : BaseResourceConfigurationBuilder<TResource, IReadOnlyJsonPropertyConfiguration, IReadOnlyJsonResourceConfiguration, IReadOnlyJsonModelConfiguration>
         where TResource : class, IRestResource
     {
         protected override IPropertyConfigurationBuilder<TProperty, IReadOnlyJsonPropertyConfiguration> CreatePropertyConfigurationBuilder<TProperty>(

@@ -27,7 +27,7 @@ namespace Snoozle.ReadOnlyJsonFile
         private static IReadOnlyJsonRuntimeConfigurationProvider BuildRuntimeConfigurationProvider()
         {
             IEnumerable<IReadOnlyJsonResourceConfiguration> resourceConfigurations =
-                ResourceConfigurationBuilder.Build<IReadOnlyJsonPropertyConfiguration, IReadOnlyJsonResourceConfiguration, IReadOnlyJsonModelConfiguration>(typeof(CustomResourceConfigurationBuilder<>));
+                ResourceConfigurationBuilder.Build<IReadOnlyJsonPropertyConfiguration, IReadOnlyJsonResourceConfiguration, IReadOnlyJsonModelConfiguration>(typeof(JsonResourceConfigurationBuilder<>));
 
             var runtimeConfigurations = new Dictionary<Type, IReadOnlyJsonRuntimeConfiguration<IRestResource>>();
 
