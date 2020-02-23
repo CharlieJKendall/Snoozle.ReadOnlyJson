@@ -14,8 +14,8 @@ Configuration can by provided using the builder lambda (as below) or via an `ICo
 public void ConfigureServices(IServiceCollection services)
 {
     services
-        .AddControllers()
-        .AddSnoozleSqlServer();
+        .AddMvc()
+        .AddSnoozleReadOnlyJson();
 }
 ```
 
@@ -40,7 +40,29 @@ Inherit from the `JsonResourceConfigurationBuilder` class, passing your model as
 
 There are two key methods that the base class provides: `ConfigurationForModel()` and `ConfigurationForProperty()`. These set model- and property-level configurations for the resource. Any property named `Id` or `<resource_type_name>Id` (e.g. `CatId`) will be automatically set by convention as the primary key/identifier. If your primary key has another name, it can be set using the `IsPrimaryIdentifier()` method on the property builder.
 
-The default route is the pluralised resource name, i.e. `api/cats`
+The default route is the pluralised resource name, i.e. `api/cats`. The JSON files should contain a single root-level array of the objects, for example
+
+``` json
+[
+    {
+        "id": 1,
+        "hairLength": 33,
+        "name": "Tabby"
+    },
+
+    {
+        "id": 2,
+        "hairLength": 333,
+        "name": "Pogo"
+    },
+    {
+        "id": 3,
+        "name": "Cue Ball"
+    }
+]
+
+```
+
 
 ``` cs
 public class CatResourceConfiguration : JsonResourceConfigurationBuilder<Cat>
