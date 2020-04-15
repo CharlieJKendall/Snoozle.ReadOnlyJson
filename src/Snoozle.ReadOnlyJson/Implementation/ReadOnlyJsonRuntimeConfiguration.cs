@@ -1,4 +1,5 @@
 ﻿using Snoozle.Abstractions;
+using Snoozle.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,10 +14,13 @@ namespace Snoozle.ReadOnlyJsonFile.Implementation
         public ReadOnlyJsonRuntimeConfiguration(IReadOnlyJsonResourceConfiguration resourceConfiguration, List<TResource> data)
             : base(resourceConfiguration)
         {
+            ExceptionHelper.Argument.ThrowIfTrue(
+                data == null,
+                $"Null data was read from the JSON file for resource: {typeof(TResource).Name}",
+                nameof(data));
+
             _data = data.ToDictionary(x => GetPrimaryKeyValue(x).ToString());
         }
-
-        public string CustomRuntimeConfigurationValue { get; }
 
         public IEnumerable<TResource> GetAllEntries()
         {

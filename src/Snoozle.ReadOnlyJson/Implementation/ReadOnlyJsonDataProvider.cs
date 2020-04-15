@@ -7,11 +7,11 @@ namespace Snoozle.ReadOnlyJsonFile.Implementation
 {
     internal class ReadOnlyJsonDataProvider : IDataProvider
     {
-        private readonly IReadOnlyJsonRuntimeConfigurationProvider _customRuntimeConfigurationProvider;
-
-        public ReadOnlyJsonDataProvider(IReadOnlyJsonRuntimeConfigurationProvider customRuntimeConfigurationProvider)
+        private readonly IReadOnlyJsonRuntimeConfigurationProvider _readOnlyJsonRuntimeConfigurationProvider;
+        
+        public ReadOnlyJsonDataProvider(IReadOnlyJsonRuntimeConfigurationProvider readOnlyJsonRuntimeConfigurationProvider)
         {
-            _customRuntimeConfigurationProvider = customRuntimeConfigurationProvider;
+            _readOnlyJsonRuntimeConfigurationProvider = readOnlyJsonRuntimeConfigurationProvider;
         }
 
         public Task<bool> DeleteByIdAsync<TResource>(object primaryKey)
@@ -51,7 +51,7 @@ namespace Snoozle.ReadOnlyJsonFile.Implementation
         private IReadOnlyJsonRuntimeConfiguration<TResource> GetConfig<TResource>()
             where TResource : class, IRestResource
         {
-            return (IReadOnlyJsonRuntimeConfiguration<TResource>)_customRuntimeConfigurationProvider.GetRuntimeConfigurationForType(typeof(TResource));
+            return (IReadOnlyJsonRuntimeConfiguration<TResource>)_readOnlyJsonRuntimeConfigurationProvider.GetRuntimeConfigurationForType(typeof(TResource));
         }
     }
 }
