@@ -1,8 +1,10 @@
-﻿namespace Snoozle.ReadOnlyJsonFile.TestHarness.RestResources
+﻿using System;
+
+namespace Snoozle.ReadOnlyJsonFile.TestHarness.RestResources
 {
     public class Cat : IRestResource
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public int? HairLength { get; set; }
 
